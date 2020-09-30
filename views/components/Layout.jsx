@@ -13,6 +13,10 @@ class Layout extends React.Component {
                 <body>
                     <header>
                         <h1>Film Log</h1>
+                        <nav>
+                            <a href="/auth/signup">Sign Up</a>
+                            <a href="/auth/login">Login</a>
+                        </nav>
                     </header>
                     <main>{this.props.children}</main>
                     <footer>
