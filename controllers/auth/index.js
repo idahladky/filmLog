@@ -29,11 +29,11 @@ router.post("/login", async (req,res) => {
     const user = await User.findOne({ username: req.body.username })
     console.log(user)
     if (user.length > 0) {
-        const check = await bcrypt.compare(req.body.password, user[0].password)
+        const check = await bcrypt.compare(req.body.password, user.password)
         if (check) {
             req.session.login = true
-            req.session.username = user[0].username
-            res.redirect("/")
+            req.session.username = user.username
+            res.redirect("/filmLogs/")
         } else {
             res.render("auth/Fail")
         }

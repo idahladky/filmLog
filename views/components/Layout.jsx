@@ -16,6 +16,7 @@ class Layout extends React.Component {
                         <nav>
                             <a href="/auth/signup">Sign Up</a>
                             <a href="/auth/login">Login</a>
+                            <a href ="/auth/logout">Logout</a>
                         </nav>
                     </header>
                     <main>{this.props.children}</main>
