@@ -6,7 +6,7 @@ const mongoose = require("./dbconn")
 // data to seed
 const seed = [
     {
-        rollNumber: 001,
+        rollNumber: 1,
         filmManufacturer: "Kodak",
         filmType: "Ultramax",
         filmColor: "color",
@@ -18,7 +18,7 @@ const seed = [
         notes: "Frame 27 aperture changed to 4.0, shutter speed 250"
     }, 
     {
-        rollNumber: 002,
+        rollNumber: 2,
         filmManufacturer: "Kodak",
         filmType: "Ultramax",
         filmColor: "color",
