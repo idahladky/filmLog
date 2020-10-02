@@ -5,7 +5,15 @@ class Fail extends React.Component {
     render() {
         return (
             <Layout title="Film Log - Login Fialed">
-                <h1>FAILED TO LOGIN</h1>
+                <div>
+                    <div className="container">
+                        <h2>Failed to Login</h2>
+                        <form action="/auth/signup">
+                            <input type="submit" id="button" value="Sign Up" />
+                        </form>
+                    </div>
+                </div>
+
             </Layout>
         )
     }

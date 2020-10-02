@@ -5,11 +5,19 @@ class Login extends React.Component {
     render() {
         return (
             <Layout title="Film Log - Login">
-                <form action="/auth/login" method="post">
-                    <input type="text" name="username" placeholder="Username" />
-                    <input type="text" name="password" placeholder="Password" />
-                    <input type="submit" value="login" />
-                </form>
+                <div>
+                    <div className="container">
+                        <h2>Login</h2>
+                        <form action="/auth/login" method="post">
+                            <hr/>
+                            <input type="text" name="username" placeholder="Username" />
+                            <hr/>
+                            <input type="text" name="password" placeholder="Password" />
+                            <hr class="bottom_rule"/>
+                            <input type="submit" id="button" value="Login" />
+                        </form>
+                    </div>
+                </div>
             </Layout>
         )
     }
