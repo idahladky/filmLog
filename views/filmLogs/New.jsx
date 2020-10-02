@@ -4,7 +4,7 @@ const Layout = require("../components/Layout")
 class New extends React.Component {
     render() {
         return (
-            <Layout title="New Logs">
+            <Layout title="Film Log - New">
                 <h1>New Roll</h1>
                 <form action="/filmLogs/" method="post">
                     Roll Number: <input type="number" name="rollNumber" min="1" /> <br/>

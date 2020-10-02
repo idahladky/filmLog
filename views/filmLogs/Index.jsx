@@ -5,7 +5,7 @@ class Index extends React.Component {
     render() {
         const {filmLogs} = this.props
         return (
-            <Layout title="All Logs">
+            <Layout title="Film Log - All">
                 <h1>All</h1>
                 <a href="/filmLogs/new"><button>Enter New Log</button></a>
                 <ul>

@@ -33,12 +33,12 @@ const seed = [
 ]
 
 // seed the data
-seed.forEach((film) => {
-    FilmLog.create(film, (err, success) => {
-        if (success) {
-            console.log("we did it!")
-        }
-    })
-})
+// seed.forEach((film) => {
+//     FilmLog.create(film, (err, success) => {
+//         if (success) {
+//             console.log("we did it!")
+//         }
+//     })
+// })
 
 module.exports = seed
