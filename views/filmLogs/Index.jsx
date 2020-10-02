@@ -8,9 +8,13 @@ class Index extends React.Component {
             <Layout title="All Logs">
                 <h1>All</h1>
                 <a href="/filmLogs/new"><button>Enter New Log</button></a>
-                {filmLogs.map((log) => {
-                    <p>{filmLogs.rollNumber}</p>
-                })}
+                <ul>
+                    {filmLogs.map((log, index) => {
+                        return <a href={`/filmLogs/${log._id}`}>
+                            <li key={index}>Roll {log.rollNumber} {log.filmManufacturer} {log.filmType} ({log.filmColor})</li>
+                        </a>
+                    })}
+                </ul>
             </Layout>
         )
     }

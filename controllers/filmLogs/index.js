@@ -37,10 +37,10 @@ router.get("/new", (req, res) => {
 
 // D // delete
 // with auth
-router.delete("/:id", auth, (req,res) => {
-    FilmLog.findByIdAndDelete(req.params.id)
-    res.redirect("/filmLogs")
-})
+// router.delete("/:id", auth, (req,res) => {
+//     FilmLog.findByIdAndDelete(req.params.id)
+//     res.redirect("/filmLogs")
+// })
 // without auth
 router.delete("/:id", (req,res) => {
     FilmLog.findByIdAndDelete(req.params.id)
@@ -72,7 +72,7 @@ router.post("/", (req,res) => {
 // S // show
 // with auth
 // without auth
-router.get("/filmLogs/:id", (req,res) => {
+router.get("/:id", (req,res) => {
     FilmLog.findById(req.params.id, (error, foundLog) => {
         res.render("filmLogs/Show", {
             filmLog: foundLog

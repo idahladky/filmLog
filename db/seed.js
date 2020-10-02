@@ -1,7 +1,8 @@
 // database connection
-const mongoose = require("./dbconn")
+const mongoose = require("mongoose")
 
 // import models
+const FilmLog = require("../models/filmLogs/index")
 
 // data to seed
 const seed = [
@@ -32,5 +33,12 @@ const seed = [
 ]
 
 // seed the data
+seed.forEach((film) => {
+    FilmLog.create(film, (err, success) => {
+        if (success) {
+            console.log("we did it!")
+        }
+    })
+})
 
 module.exports = seed
