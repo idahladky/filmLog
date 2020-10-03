@@ -5,23 +5,26 @@ class Show extends React.Component {
     render() {
         const {filmLog} = this.props
         return (
-            <Layout title="Film Log - Roll Info">
-                <h1>Roll {filmLog.rollNumber}</h1>
+            <Layout title={`Film Log - Roll ${filmLog.rollNumber}`}>
+                <h2>Roll {filmLog.rollNumber}</h2>
                 <ul>
-                    <li>{filmLog.filmManufacturer}</li>
-                    <li>{filmLog.filmType}</li>
-                    <li>{filmLog.filmColor}</li>
-                    <li>{filmLog.camera}</li>
-                    {/* <li>{filmLog.date}</li> */}
-                    <li>{filmLog.ISO}</li>
-                    <li>{filmLog.lens}</li>
-                    <li>{filmLog.exposure}</li>
-                    <li>{filmLog.notes}</li>
+                    <li><strong>MANUFACTURER:</strong> {filmLog.filmManufacturer}</li>
+                    <li><strong>TYPE:</strong> {filmLog.filmType}</li>
+                    <li><strong>COLOR:</strong> {filmLog.filmColor}</li>
+                    <li><strong>CAMERA:</strong> {filmLog.camera}</li>
+                    {/* <li><strong>Date:</strong> {filmLog.date}</li> */}
+                    <li><strong>ISO:</strong> {filmLog.ISO}</li>
+                    <li><strong>LENS:</strong> {filmLog.lens}</li>
+                    <li><strong>EXPOSURE:</strong> {filmLog.exposure}</li>
+                    <li><strong>NOTES:</strong> {filmLog.notes}</li>
                 </ul>
-                <button><a href={`/filmLogs/${filmLog._id}`}>Edit</a></button><br />
-                <form action={`/filmLogs/${filmLog._id}?_method=DELETE`} method="post">
-                    <input type="submit" value="Delete this Roll"/>
-                </form>
+                <div className="button_div">
+                    <form action={`/filmLogs/${filmLog._id}?_method=DELETE`} method="post">
+                        <input className="button" type="submit" value="Delete"/>
+                    </form>
+                    <a href={`/filmLogs/edit/${filmLog._id}`}><button className="button">Edit</button></a>
+                    <a href={`/filmLogs/`}><button className="button">Back</button></a>
+                </div>
             </Layout>
         )
     }

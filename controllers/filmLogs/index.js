@@ -28,7 +28,11 @@ router.get("/", (req,res) => {
 // N // new
 // with auth
 // router.get("/new", auth, (req, res) => {
-//     res.render("filmLogs/New")
+//     try {
+//         res.render("filmLogs/New")
+//     } catch (error) {
+//         console.log(error)
+//     }
 // })
 // without auth
 router.get("/new", (req, res) => {
@@ -38,36 +42,74 @@ router.get("/new", (req, res) => {
 // D // delete
 // with auth
 // router.delete("/:id", auth, (req,res) => {
-//     FilmLog.findByIdAndDelete(req.params.id)
-//     res.redirect("/filmLogs")
+//     try {
+//         FilmLog.findByIdAndDelete(req.params.id)
+//         res.redirect("/filmLogs")
+//     } catch (error) {
+//         console.log(error)
+//     }   
 // })
 // without auth
 router.delete("/:id", (req,res) => {
-    FilmLog.findByIdAndDelete(req.params.id)
-    res.redirect("/filmLogs/")
+    FilmLog.findByIdAndRemove(req.params.id, (error, data) => {
+        res.redirect("/filmLogs/")
+    }) 
 })
 
 // U // update
 // with auth
+// router.put("/edit/:id", auth, async (req,res) => {
+//     try {
+//         req.body.username = req.session.username
+//         await FilmLog.findByIdAndUpdate(req.params.id, req.body)
+//         res.redirect("/filmLogs/")    
+//     } catch (error) {
+//         console.log(error)
+//     }
+// })
 // without auth
+router.put("/edit/:id", (req,res) => {
+    FilmLog.findByIdAndUpdate(req.params.id, req.body, {new:true}, (error, updatedModel) => {
+        res.redirect("/filmLogs/")
+    })
+})
 
 // C // create
 // with auth
 // router.post("/", auth, async (req,res) => {
-//     req.body.username = req.session.username
-//     const newLog = await FilmLog.create(req.body)
-//     res.redirect("/filmLogs/")
+//     try {
+//         req.body.username = req.session.username
+//         const newLog = await FilmLog.create(req.body)
+//         res.redirect("/filmLogs/")    
+//     } catch (error) {
+//         console.log(error)
+//     }
 // })
 // without auth
 router.post("/", (req,res) => {
-    FilmLog.create(req.body, (error, createdFilmLog) => {
+    FilmLog.create(req.body, (error, data) => {
         res.redirect("/filmLogs/")
     })
 })
 
 // E // edit
 // with auth
+// router.get("/edit/:id", auth, async (req,res) => {
+//     try {
+//         const log = await FilmLog.findById(req.params.id)
+//         res.render("/filmLogs/Edit", {log})
+//     } catch (error) {
+//         console.log(error)
+//     }    
+// })
 // without auth
+router.get("/edit/:id", (req,res) => {
+    FilmLog.findById(req.params.id, (error, foundLog) => {
+        res.render("filmLogs/Edit", {
+            filmLog: foundLog
+        })
+    })
+})
 
 // S // show
 // with auth

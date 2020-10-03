@@ -12,17 +12,22 @@ class Layout extends React.Component {
                 </head>
                 <body>
                     <header>
-                        <h1>Film Log</h1>
+                        <h1>Film<span>Log</span></h1>
                         <nav>
-                            <a href="/auth/signup">Sign Up</a>
-                            <a href="/auth/login">Login</a>
+                            <a href="/filmLogs">Home</a>
+                            <a href="/filmLogs/new">New Log</a>
                             <a href ="/auth/logout">Logout</a>
                         </nav>
                     </header>
-                    <main>{this.props.children}</main>
+                    <main>
+                        <div className="container">
+                            <div className="inner">{this.props.children}</div>
+                        </div>
+                    </main>
                     <footer>
-                        <h2>created by Ida</h2>
+                        <div>&copy; 2020 IH Photography</div>
                     </footer>
+
                 </body>
             </html>
         )

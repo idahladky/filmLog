@@ -29,7 +29,7 @@ app.use(
 )
 app.use(express.static("public"))
 app.use(express.urlencoded({ extended: true }))
-app.use(methodOverride("method"))
+app.use(methodOverride("_method"))
 // app.use(express.json()) //uncomment if using json
 app.use(morgan("tiny")) // logging
 
