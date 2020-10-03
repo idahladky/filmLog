@@ -36,7 +36,8 @@ app.use(morgan("tiny")) // logging
 
 // routes
 app.get("/", (req,res) => {
-    res.render("router connected")
+    // res.render("router connected")
+    res.redirect("/auth/signup")
 })
 app.use("/auth", authRouter)
 app.use("/filmLogs", filmRouter)
