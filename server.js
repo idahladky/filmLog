@@ -9,6 +9,7 @@ const mongoose = require("./db/dbconn")
 const session = require("express-session")
 const methodOverride = require("method-override")
 const morgan = require("morgan")
+const MongoStore = require("connect-mongo")(session);
 
 // routers
 const authRouter = require("./controllers/auth/index")
@@ -20,11 +21,11 @@ app.engine("jsx", require("express-react-views").createEngine())
 
 // middleware
 app.use(
-    session({
+    session({ // SESSIONS, this allows you to use req.session for tracking session data
         secret: SECRET,
-        resave: false,
-        saveUninitialized: true,
-        cookie: { secure: process.env.NODE_ENV === "production" },
+        saveUninitialized: false, // don't create session until something stored
+        resave: false, //don't save session if unmodified
+        store: new MongoStore({ mongooseConnection: mongoose.connection }),
     })
 )
 app.use(express.static("public"))
