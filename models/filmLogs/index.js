@@ -3,6 +3,7 @@ const mongoose = require("mongoose")
 
 // create schema
 const filmLogSchema = new mongoose.Schema({
+    username: {type: String, required: true},
     rollNumber: { type: Number, required: true, unique: true },
     filmManufacturer: String,
     filmType: String,

@@ -89,11 +89,11 @@ router.put("/edit/:id", auth, async (req,res) => {
 router.post("/", auth, (req,res) => {
     req.body.username = req.session.username
     console.log(req.body)
-    if(req.body.rollNumber === true) {
+    // if(req.body.rollNumber === true) {
         FilmLog.create(req.body, (error,data) =>{
             res.redirect("/filmLogs/")
         })
-    }
+    // }
 })
 // without auth
 // router.post("/", (req,res) => {
