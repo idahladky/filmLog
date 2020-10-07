@@ -12,7 +12,7 @@ class Login extends React.Component {
                             <hr/>
                             <input type="text" name="username" placeholder="Username" />
                             <hr/>
-                            <input type="text" name="password" placeholder="Password" />
+                            <input type="text" name="password" placeholder="Password" autoComplete="off" />
                             <hr className="bottom_rule"/>
                             <input type="submit" id="button" value="Login" />
                         </form>
