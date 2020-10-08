@@ -15,7 +15,7 @@ router.get("/signup", (req,res) => {
 router.post("/signup", async (req,res) => {
     req.body.password = await bcrypt.hash(req.body.password, 10)
     const newUser = await User.create(req.body)
-    res.redirect("/auth/login")
+    res.redirect("auth/login")
 })
 
 // login page
